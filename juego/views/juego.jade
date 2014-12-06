@@ -1,0 +1,38 @@
+extends layout
+
+block content
+
+  head
+    link(rel='stylesheet', href='/stylesheets/app.css')
+    script(src='http://code.jquery.com/jquery-1.10.1.min.js')
+
+            script(type='text/javascript', src='/javascript/g.js')
+
+  h1= title
+  p Welcome to #{title}
+
+  body 
+
+  div#menu.hidden
+    h1 las bolas
+    p.b(onclick='alert("agarras");newGame();') ¡Jugar!
+    p.b(onclick='showHelp()') ¿Cómo le hago?
+    p#m_hs.p
+  div#help.hidden(onclick='hideHelp()')
+    h1 las bolas
+    p
+      | Cada nivel se añade un nuevo círculo, toca ese círculo para pasar de nivel, si tocas uno incorrecto el juego termina.
+    p.p Toca para continuar
+  div#score.hidden(onclick='nextLevel()')
+    h1#curscore
+    p#s_hs
+    p.p Toca para continuar
+  div#lose.hidden
+    h1 loser
+    p Puntuación:
+    h1#lose_score
+    p.p.u(onclick='newGame()') Nuevo Juego
+    div(onclick='toMenu()') Menú
+  div#game
+
+
